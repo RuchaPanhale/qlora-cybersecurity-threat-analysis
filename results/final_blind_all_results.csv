@@ -1,0 +1,541 @@
+system,index,input,expected_output,prediction_text,json_valid,schema_valid,attack_type_correct,severity_correct,affected_asset_correct,confidence_numeric,pred_attack_type,expected_attack_type,pred_severity,expected_severity,pred_affected_asset,expected_affected_asset
+blind_base_zero_shot,0,A customer-facing web portal became unavailable after receiving a very large number of requests from many unrelated source addresses.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","{
+  ""attack_type"": ""dos"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""web portal"",
+  ""recommended_action"": ""increase firewall rules to limit access from specific IP ranges and implement rate limiting on the server"",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,True,False,False,False,dos,dos,high,critical,web portal,web_service
+blind_base_zero_shot,1,"An internal workstation attempted to connect to many neighboring machines in a repeated automated pattern, suggesting self-propagating malware behavior.","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","{
+  ""attack_type"": ""exploit"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""internal workstation"",
+  ""recommended_action"": ""implement network segmentation and conduct further investigation into the root cause of the infection."",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,False,False,False,False,exploit,worm,high,critical,internal workstation,network_host
+blind_base_zero_shot,2,"A server kept an unauthorized remote access channel open after the original intrusion, allowing the attacker to return later.","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","{
+  ""attack_type"": ""exploit"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""server"",
+  ""recommended_action"": ""Close the unauthorized remote access channel and implement additional security measures."",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,False,False,False,False,exploit,backdoor,high,critical,server,network_host
+blind_base_zero_shot,3,A public API endpoint received crafted requests that attempted to trigger a known software vulnerability.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","{
+  ""attack_type"": ""exploit"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""public API endpoint"",
+  ""recommended_action"": ""patch the software and update security measures for the API"",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,True,True,False,False,exploit,exploit,high,high,public API endpoint,web_service
+blind_base_zero_shot,4,A host sent connection attempts to many different ports on the same destination to identify exposed services.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","{
+  ""attack_type"": ""fuzzing"",
+  ""severity"": ""medium"",
+  ""affected_asset"": ""network infrastructure"",
+  ""recommended_action"": ""implement intrusion detection systems and update firewall rules to block suspicious traffic patterns."",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,False,True,False,False,fuzzing,reconnaissance,medium,medium,network infrastructure,network_host
+blind_base_zero_shot,5,"Malformed packets were sent repeatedly to a network daemon, apparently to test how the service handles unexpected input.","{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","{
+  ""attack_type"": ""fuzzing"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""network daemon"",
+  ""recommended_action"": ""implement intrusion detection and response system (IDS/IR) to detect and prevent similar attacks in the future"",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,True,False,False,False,fuzzing,fuzzing,high,medium,network daemon,network_service
+blind_base_zero_shot,6,"A security device reported malicious traffic against a service, but the indicators did not clearly match scanning, exploitation, fuzzing, worm behavior, or denial of service.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","{
+  ""attack_type"": ""generic_attack"",
+  ""severity"": ""medium"",
+  ""affected_asset"": ""service"",
+  ""recommended_action"": ""Review and update firewall rules to block suspicious traffic."",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,True,True,False,False,generic_attack,generic_attack,medium,medium,service,network_service
+blind_base_zero_shot,7,A suspicious payload containing low-level executable instructions was detected while being delivered to a listening service.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","{
+  ""attack_type"": ""fuzzing"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""listening service"",
+  ""recommended_action"": ""block and analyze the source IP address of the attacker"",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,False,False,False,False,fuzzing,shellcode,high,critical,listening service,network_service
+blind_base_zero_shot,8,An attacker appeared to collect information about host configuration and possible weaknesses before launching a direct attack.,"{""attack_type"": ""analysis"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review information-gathering activity, limit exposed diagnostic details, and monitor for follow-up attacks."", ""confidence"": 0.84}","{
+  ""attack_type"": ""reconnaissance"",
+  ""severity"": ""medium"",
+  ""affected_asset"": ""host configuration"",
+  ""recommended_action"": ""update security patches and perform vulnerability assessments"",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,False,True,False,False,reconnaissance,analysis,medium,medium,host configuration,network_host
+blind_base_zero_shot,9,An internal workstation performed a routine DNS query with normal traffic volume and no suspicious indicators.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""dns_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the dns_service."", ""confidence"": 0.84}","{
+  ""attack_type"": ""reconnaissance"",
+  ""severity"": ""low"",
+  ""affected_asset"": ""internal workstation"",
+  ""recommended_action"": ""Monitor network traffic for unusual activity"",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,False,True,False,False,reconnaissance,benign,low,low,internal workstation,dns_service
+blind_base_zero_shot,10,The company mail server received normal SMTP traffic from a trusted internal relay with expected volume.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""mail_server"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the mail_server."", ""confidence"": 0.84}","{
+  ""attack_type"": ""reconnaissance"",
+  ""severity"": ""medium"",
+  ""affected_asset"": ""company mail server"",
+  ""recommended_action"": ""Implement stricter access controls and monitor for unusual activity."",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,False,False,False,False,reconnaissance,benign,medium,low,company mail server,mail_server
+blind_base_zero_shot,11,A database-backed web application received suspicious input containing SQL syntax intended to manipulate a backend query.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","{
+  ""attack_type"": ""fuzzing"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""database"",
+  ""recommended_action"": ""Implement input validation and sanitization measures for user inputs."",
+  ""confidence"": ""medium""
+}<|endoftext|>",True,False,False,True,False,False,fuzzing,exploit,high,high,database,web_service
+blind_base_zero_shot,12,Many external hosts sent high-volume traffic to the same public service until legitimate users experienced timeouts.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","{
+  ""attack_type"": ""fuzzing"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""public service"",
+  ""recommended_action"": ""implement rate limiting and monitoring for the public service"",
+  ""confidence"": ""medium""
+}<|endoftext|>",True,False,False,False,False,False,fuzzing,dos,high,critical,public service,network_service
+blind_base_zero_shot,13,"A compromised endpoint continued to contact a command server after reboot, suggesting unauthorized persistence.","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","{
+  ""attack_type"": ""exploit"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""endpoint"",
+  ""recommended_action"": ""Implement endpoint security measures such as firewalls and intrusion detection systems."",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,False,False,False,False,exploit,backdoor,high,critical,endpoint,network_host
+blind_base_zero_shot,14,"A host generated repeated automated connection attempts toward multiple internal systems, consistent with malware spreading behavior.","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","{
+  ""attack_type"": ""reconnaissance"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""internal systems"",
+  ""recommended_action"": ""implement network monitoring and intrusion detection systems to detect and prevent further attacks."",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,False,False,False,False,reconnaissance,worm,high,critical,internal systems,network_host
+blind_base_zero_shot,15,A source address probed several services across the environment to discover which systems were reachable.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review scanning activity, restrict exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","{
+  ""attack_type"": ""reconnaissance"",
+  ""severity"": ""medium"",
+  ""affected_asset"": ""network infrastructure"",
+  ""recommended_action"": ""implement network segmentation and monitoring for better visibility into potential threats."",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,True,True,False,False,reconnaissance,reconnaissance,medium,medium,network infrastructure,network_service
+blind_base_zero_shot,16,A network service received unusual random-looking inputs designed to trigger crashes or unexpected behavior.,"{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","{
+  ""attack_type"": ""fuzzing"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""network service"",
+  ""recommended_action"": ""implement input validation and logging for all incoming requests"",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,True,False,False,False,fuzzing,fuzzing,high,medium,network service,network_service
+blind_base_zero_shot,17,"The IDS marked a flow as hostile, but the event lacked enough detail to assign it to a specific attack family.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","{
+  ""attack_type"": ""generic_attack"",
+  ""severity"": ""medium"",
+  ""affected_asset"": ""network infrastructure"",
+  ""recommended_action"": ""Review and analyze logs for additional details; consider implementing more advanced logging and monitoring."",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,True,True,False,False,generic_attack,generic_attack,medium,medium,network infrastructure,network_service
+blind_base_zero_shot,18,Executable payload fragments were observed in traffic targeting a server process.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","{
+  ""attack_type"": ""exploit"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""server process"",
+  ""recommended_action"": ""Implement endpoint detection and response (EDR) solutions to monitor for anomalous behavior."",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,False,False,False,False,exploit,shellcode,high,critical,server process,network_service
+blind_base_zero_shot,19,A suspicious actor appeared to examine available services and gather technical details about a target host.,"{""attack_type"": ""analysis"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review information-gathering activity, limit exposed diagnostic details, and monitor for follow-up attacks."", ""confidence"": 0.84}","{
+  ""attack_type"": ""reconnaissance"",
+  ""severity"": ""medium"",
+  ""affected_asset"": ""target host"",
+  ""recommended_action"": ""implement network monitoring tools for real-time detection of unauthorized access attempts"",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,False,True,False,False,reconnaissance,analysis,medium,medium,target host,network_host
+blind_base_zero_shot,20,A normal web request was served successfully by the public website with no abnormal traffic pattern.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""web_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the web_service."", ""confidence"": 0.84}","{
+  ""attack_type"": ""reconnaissance"",
+  ""severity"": ""low"",
+  ""affected_asset"": ""public website"",
+  ""recommended_action"": ""no action needed"",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,False,True,False,False,reconnaissance,benign,low,low,public website,web_service
+blind_base_zero_shot,21,A normal SSH login from a known administrator account completed successfully from an expected internal address.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_host"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the network_host."", ""confidence"": 0.84}","{
+  ""attack_type"": ""generic_attack"",
+  ""severity"": ""low"",
+  ""affected_asset"": ""SSH service on the internal network"",
+  ""recommended_action"": ""Update SSH configuration to use strong encryption and limit access based on IP addresses"",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,False,True,False,False,generic_attack,benign,low,low,SSH service on the internal network,network_host
+blind_base_zero_shot,22,A vulnerable application endpoint was targeted with crafted input designed to execute unintended behavior.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","{
+  ""attack_type"": ""exploit"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""vulnerable application endpoint"",
+  ""recommended_action"": ""Update and patch the application to address the vulnerability."",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,True,True,False,False,exploit,exploit,high,high,vulnerable application endpoint,web_service
+blind_base_zero_shot,23,A public service slowed down after receiving repeated connection floods from external sources.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","{
+  ""attack_type"": ""dos"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""public service"",
+  ""recommended_action"": ""implement network security measures to prevent further attacks and limit access to the service"",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,True,False,False,False,dos,dos,high,critical,public service,network_service
+blind_base_zero_shot,24,A suspicious service remained available for remote attacker access even after the original intrusion activity ended.,"{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","{
+  ""attack_type"": ""exploit"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""service"",
+  ""recommended_action"": ""disable and patch the vulnerable service"",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,False,False,False,False,exploit,backdoor,high,critical,service,network_host
+blind_base_zero_shot,25,Automated traffic from one internal machine attempted to spread to several other hosts without user action.,"{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","{
+  ""attack_type"": ""reconnaissance"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""network infrastructure"",
+  ""recommended_action"": ""implement network segmentation and intrusion detection systems"",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,False,False,False,False,reconnaissance,worm,high,critical,network infrastructure,network_host
+blind_base_zero_shot,26,A scanner checked a range of ports to identify exposed services on a target system.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","{
+  ""attack_type"": ""fuzzing"",
+  ""severity"": ""medium"",
+  ""affected_asset"": ""target system"",
+  ""recommended_action"": ""update firewall rules and patch vulnerable systems"",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,False,True,False,False,fuzzing,reconnaissance,medium,medium,target system,network_host
+blind_base_zero_shot,27,An application service received malformed protocol messages intended to test input validation behavior.,"{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","{
+  ""attack_type"": ""fuzzing"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""application service"",
+  ""recommended_action"": ""implement input validation and logging for better detection of such attacks"",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,True,False,False,False,fuzzing,fuzzing,high,medium,application service,network_service
+blind_base_zero_shot,28,"Security monitoring detected malicious behavior against a service, but the available log did not specify the exact method.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","{
+  ""attack_type"": ""reconnaissance"",
+  ""severity"": ""medium"",
+  ""affected_asset"": ""service"",
+  ""recommended_action"": ""Review logs for potential vulnerabilities and implement security patches."",
+  ""confidence"": ""high""
+}<|endoftext|>",True,False,False,True,False,False,reconnaissance,generic_attack,medium,medium,service,network_service
+blind_base_zero_shot,29,The traffic contained code-like payload bytes associated with an attempt to execute instructions on the target.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","{
+  ""attack_type"": ""exploit"",
+  ""severity"": ""high"",
+  ""affected_asset"": ""target system"",
+  ""recommended_action"": ""implement intrusion detection and prevention systems (IDS/IPS) and conduct regular security audits"",
+  ""confidence"": ""95%""
+}<|endoftext|>",True,False,False,False,False,False,exploit,shellcode,high,critical,target system,network_service
+blind_base_few_shot,0,A customer-facing web portal became unavailable after receiving a very large number of requests from many unrelated source addresses.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","```json
+{
+    ""attack_type"": ""dos"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""web_portal"",
+    ""recommended_action"": ""Implement rate limiting on the web_portal, review access logs for unusual patterns, and consider increasing firewall settings to restrict incoming connections."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,True,True,False,True,dos,dos,critical,critical,web_portal,web_service
+blind_base_few_shot,1,"An internal workstation attempted to connect to many neighboring machines in a repeated automated pattern, suggesting self-propagating malware behavior.","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""workstation"",
+    ""recommended_action"": ""Implement endpoint detection and response (EDR) solutions, conduct regular vulnerability assessments, and isolate infected workstations to prevent lateral movement within the network."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,exploit,worm,critical,critical,workstation,network_host
+blind_base_few_shot,2,"A server kept an unauthorized remote access channel open after the original intrusion, allowing the attacker to return later.","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""server"",
+    ""recommended_action"": ""Close the unauthorized remote access channel immediately, implement additional security measures such as firewall rules, intrusion detection systems, and user authentication protocols, and conduct a thorough investigation into the root cause of the vulnerability."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,exploit,backdoor,critical,critical,server,network_host
+blind_base_few_shot,3,A public API endpoint received crafted requests that attempted to trigger a known software vulnerability.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""public_api_endpoint"",
+    ""recommended_action"": ""Patch the software vulnerability in the public API endpoint, update the software stack, and implement additional security measures such as rate limiting and access controls."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,True,False,False,True,exploit,exploit,critical,high,public_api_endpoint,web_service
+blind_base_few_shot,4,A host sent connection attempts to many different ports on the same destination to identify exposed services.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","```json
+{
+    ""attack_type"": ""reconnaissance"",
+    ""severity"": ""medium"",
+    ""affected_asset"": ""host"",
+    ""recommended_action"": ""Review system logs for unusual connections, implement stricter access controls, and consider running vulnerability scans."",
+    ""confidence"": 0.85
+}
+```<|endoftext|>",True,True,True,True,False,True,reconnaissance,reconnaissance,medium,medium,host,network_host
+blind_base_few_shot,5,"Malformed packets were sent repeatedly to a network daemon, apparently to test how the service handles unexpected input.","{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""network_daemon"",
+    ""recommended_action"": ""Review the network daemon's codebase for potential vulnerabilities that could be exploited by sending malformed packets, implement proper input validation, and update the daemon to prevent such attacks."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,False,False,True,exploit,fuzzing,critical,medium,network_daemon,network_service
+blind_base_few_shot,6,"A security device reported malicious traffic against a service, but the indicators did not clearly match scanning, exploitation, fuzzing, worm behavior, or denial of service.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","```json
+{
+    ""attack_type"": ""unknown"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""service"",
+    ""recommended_action"": ""Review all relevant logs for any signs of unusual activity, investigate further if necessary, and implement additional monitoring for similar events."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,False,False,True,unknown,generic_attack,critical,medium,service,network_service
+blind_base_few_shot,7,A suspicious payload containing low-level executable instructions was detected while being delivered to a listening service.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""listening_service"",
+    ""recommended_action"": ""Review the codebase of the listening service for potential vulnerabilities that could be exploited by the malicious payload, implement appropriate security measures such as firewalls, intrusion detection systems (IDS), and regular updates to mitigate risks."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,exploit,shellcode,critical,critical,listening_service,network_service
+blind_base_few_shot,8,An attacker appeared to collect information about host configuration and possible weaknesses before launching a direct attack.,"{""attack_type"": ""analysis"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review information-gathering activity, limit exposed diagnostic details, and monitor for follow-up attacks."", ""confidence"": 0.84}","```json
+{
+    ""attack_type"": ""reconnaissance"",
+    ""severity"": ""medium"",
+    ""affected_asset"": ""host_configuration"",
+    ""recommended_action"": ""Review system configurations, update firewall settings, and implement additional security measures such as intrusion detection systems (IDS) and anti-malware software."",
+    ""confidence"": 0.85
+}
+```<|endoftext|>",True,True,False,True,False,True,reconnaissance,analysis,medium,medium,host_configuration,network_host
+blind_base_few_shot,9,An internal workstation performed a routine DNS query with normal traffic volume and no suspicious indicators.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""dns_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the dns_service."", ""confidence"": 0.84}","```json
+{
+  ""attack_type"": ""generic_attack"",
+  ""severity"": ""low"",
+  ""affected_asset"": ""internal_workstation"",
+  ""recommended_action"": ""Continue routine monitoring of the workstation's network activities, but do not take immediate action as there are no signs of malicious intent."",
+  ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,generic_attack,benign,low,low,internal_workstation,dns_service
+blind_base_few_shot,10,The company mail server received normal SMTP traffic from a trusted internal relay with expected volume.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""mail_server"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the mail_server."", ""confidence"": 0.84}","```json
+{
+    ""attack_type"": ""reconnaissance"",
+    ""severity"": ""low"",
+    ""affected_asset"": ""company_mail_server"",
+    ""recommended_action"": ""Continue monitoring the company_mail_server for any unusual patterns in SMTP traffic, especially those that deviate from typical volumes and patterns."",
+    ""confidence"": 0.85
+}
+```<|endoftext|>",True,True,False,True,False,True,reconnaissance,benign,low,low,company_mail_server,mail_server
+blind_base_few_shot,11,A database-backed web application received suspicious input containing SQL syntax intended to manipulate a backend query.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""web_application"",
+    ""recommended_action"": ""Implement input sanitization and validation checks on all user inputs, especially those that could be used in SQL queries. Review and update the application's codebase to prevent such vulnerabilities."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,True,False,False,True,exploit,exploit,critical,high,web_application,web_service
+blind_base_few_shot,12,Many external hosts sent high-volume traffic to the same public service until legitimate users experienced timeouts.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","```json
+{
+    ""attack_type"": ""reconnaissance"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""public_service"",
+    ""recommended_action"": ""Review system logs for unusual patterns of high volume traffic, investigate potential denial-of-service (DoS) attempts, and implement measures to prevent future DoS attacks."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,reconnaissance,dos,critical,critical,public_service,network_service
+blind_base_few_shot,13,"A compromised endpoint continued to contact a command server after reboot, suggesting unauthorized persistence.","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""endpoint"",
+    ""recommended_action"": ""Implement endpoint detection and response (EDR) solutions, conduct regular vulnerability assessments, and update system patches to prevent future exploitation."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,exploit,backdoor,critical,critical,endpoint,network_host
+blind_base_few_shot,14,"A host generated repeated automated connection attempts toward multiple internal systems, consistent with malware spreading behavior.","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""internal_systems"",
+    ""recommended_action"": ""Implement intrusion detection and prevention systems (IDS/IPS) to detect and prevent further exploitation, conduct a thorough investigation into the root cause of the infection, and implement patch management strategies on all affected systems."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,exploit,worm,critical,critical,internal_systems,network_host
+blind_base_few_shot,15,A source address probed several services across the environment to discover which systems were reachable.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review scanning activity, restrict exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","```json
+{
+    ""attack_type"": ""reconnaissance"",
+    ""severity"": ""low"",
+    ""affected_asset"": ""all_systems"",
+    ""recommended_action"": ""Monitor all system activities closely, especially those involving unusual probing patterns, and consider implementing additional security measures such as intrusion detection systems (IDS) or firewalls."",
+    ""confidence"": 0.85
+}
+```<|endoftext|>",True,True,True,False,False,True,reconnaissance,reconnaissance,low,medium,all_systems,network_service
+blind_base_few_shot,16,A network service received unusual random-looking inputs designed to trigger crashes or unexpected behavior.,"{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""network_service"",
+    ""recommended_action"": ""Review the codebase for any potential vulnerabilities that could be exploited by attackers, implement appropriate security patches or updates, and enhance logging and monitoring to detect such activities in real-time."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,False,True,True,exploit,fuzzing,critical,medium,network_service,network_service
+blind_base_few_shot,17,"The IDS marked a flow as hostile, but the event lacked enough detail to assign it to a specific attack family.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","```json
+{
+    ""attack_type"": ""unknown"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""network_flow"",
+    ""recommended_action"": ""Review the network_flow for potential vulnerabilities, implement additional logging and monitoring, and consider deploying intrusion detection/prevention systems (IDS/IPS) if necessary."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,False,False,True,unknown,generic_attack,critical,medium,network_flow,network_service
+blind_base_few_shot,18,Executable payload fragments were observed in traffic targeting a server process.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""server_process"",
+    ""recommended_action"": ""Review system logs for evidence of exploitation attempts, investigate the impact on the server_process, and implement additional security measures such as intrusion detection systems (IDS) and firewalls."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,exploit,shellcode,critical,critical,server_process,network_service
+blind_base_few_shot,19,A suspicious actor appeared to examine available services and gather technical details about a target host.,"{""attack_type"": ""analysis"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review information-gathering activity, limit exposed diagnostic details, and monitor for follow-up attacks."", ""confidence"": 0.84}","```json
+{
+    ""attack_type"": ""reconnaissance"",
+    ""severity"": ""medium"",
+    ""affected_asset"": ""target_host"",
+    ""recommended_action"": ""Review system logs for unusual activities, perform further reconnaissance on the target_host, and implement additional security measures such as intrusion detection systems (IDS) and firewalls."",
+    ""confidence"": 0.85
+}
+```<|endoftext|>",True,True,False,True,False,True,reconnaissance,analysis,medium,medium,target_host,network_host
+blind_base_few_shot,20,A normal web request was served successfully by the public website with no abnormal traffic pattern.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""web_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the web_service."", ""confidence"": 0.84}","```json
+{
+  ""attack_type"": ""benign"",
+  ""severity"": ""low"",
+  ""affected_asset"": ""public_website"",
+  ""recommended_action"": ""Continue serving the website as usual without changes."",
+  ""confidence"": 0.99
+}
+```<|endoftext|>",True,True,True,True,False,True,benign,benign,low,low,public_website,web_service
+blind_base_few_shot,21,A normal SSH login from a known administrator account completed successfully from an expected internal address.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_host"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the network_host."", ""confidence"": 0.84}","```json
+{
+    ""attack_type"": ""generic_attack"",
+    ""severity"": ""low"",
+    ""affected_asset"": ""internal_network"",
+    ""recommended_action"": ""Continue routine monitoring of the internal_network, ensure that all access attempts are logged and reviewed."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,generic_attack,benign,low,low,internal_network,network_host
+blind_base_few_shot,22,A vulnerable application endpoint was targeted with crafted input designed to execute unintended behavior.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""application_endpoint"",
+    ""recommended_action"": ""Update the application's codebase to patch the vulnerability, implement additional input validation, and conduct penetration testing to ensure no other vulnerabilities exist."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,True,False,False,True,exploit,exploit,critical,high,application_endpoint,web_service
+blind_base_few_shot,23,A public service slowed down after receiving repeated connection floods from external sources.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","```json
+{
+    ""attack_type"": ""dos"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""public_service"",
+    ""recommended_action"": ""Implement rate limiting on the public_service, monitor incoming connections, and consider additional security measures such as intrusion detection systems (IDS) or firewalls."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,True,True,False,True,dos,dos,critical,critical,public_service,network_service
+blind_base_few_shot,24,A suspicious service remained available for remote attacker access even after the original intrusion activity ended.,"{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""remote_system"",
+    ""recommended_action"": ""Review system logs for evidence of exploitation attempts, investigate the vulnerability that allowed remote access, patch the identified vulnerabilities, and implement additional security measures such as firewalls and intrusion detection systems."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,exploit,backdoor,critical,critical,remote_system,network_host
+blind_base_few_shot,25,Automated traffic from one internal machine attempted to spread to several other hosts without user action.,"{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""internal_network"",
+    ""recommended_action"": ""Implement perimeter firewall rules to restrict outbound traffic, conduct penetration testing on the internal network, and enhance endpoint security measures."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,exploit,worm,critical,critical,internal_network,network_host
+blind_base_few_shot,26,A scanner checked a range of ports to identify exposed services on a target system.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","```json
+{
+    ""attack_type"": ""reconnaissance"",
+    ""severity"": ""low"",
+    ""affected_asset"": ""target_system"",
+    ""recommended_action"": ""Review the target_system's firewall settings, ensure it allows necessary services, and consider implementing additional scanning tools if needed."",
+    ""confidence"": 0.92
+}
+```<|endoftext|>",True,True,True,False,False,True,reconnaissance,reconnaissance,low,medium,target_system,network_host
+blind_base_few_shot,27,An application service received malformed protocol messages intended to test input validation behavior.,"{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""application_service"",
+    ""recommended_action"": ""Review and enhance input validation mechanisms, implement strict access control policies, and conduct regular code reviews."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,False,False,True,exploit,fuzzing,critical,medium,application_service,network_service
+blind_base_few_shot,28,"Security monitoring detected malicious behavior against a service, but the available log did not specify the exact method.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","```json
+{
+    ""attack_type"": ""unknown"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""service"",
+    ""recommended_action"": ""Review all relevant logs for any signs of unauthorized access attempts, investigate the root cause, and implement appropriate security measures such as intrusion detection systems (IDS) and firewalls."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,False,False,True,unknown,generic_attack,critical,medium,service,network_service
+blind_base_few_shot,29,The traffic contained code-like payload bytes associated with an attempt to execute instructions on the target.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","```json
+{
+    ""attack_type"": ""exploit"",
+    ""severity"": ""critical"",
+    ""affected_asset"": ""target_system"",
+    ""recommended_action"": ""Implement strict access controls, update system software, and conduct further forensic analysis to identify any malicious activities."",
+    ""confidence"": 0.95
+}
+```<|endoftext|>",True,True,False,True,False,True,exploit,shellcode,critical,critical,target_system,network_service
+blind_qlora_v1,0,A customer-facing web portal became unavailable after receiving a very large number of requests from many unrelated source addresses.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","{""attack_type"": ""dos"", ""severity"": ""high"", ""affected_asset"": ""web_portal"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the web_portal, block abusive sources, and monitor service availability."", ""confidence"": 0.88}<|endoftext|>",True,True,True,False,False,True,dos,dos,high,critical,web_portal,web_service
+blind_qlora_v1,1,"An internal workstation attempted to connect to many neighboring machines in a repeated automated pattern, suggesting self-propagating malware behavior.","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_host"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of network_host."", ""confidence"": 0.84}<|endoftext|>",True,True,False,False,True,True,benign,worm,low,critical,network_host,network_host
+blind_qlora_v1,2,"A server kept an unauthorized remote access channel open after the original intrusion, allowing the attacker to return later.","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Isolate the network_service, inspect memory and process activity, patch vulnerable services, and collect forensic evidence."", ""confidence"": 0.9}<|endoftext|>",True,True,False,True,False,True,shellcode,backdoor,critical,critical,network_service,network_host
+blind_qlora_v1,3,A public API endpoint received crafted requests that attempted to trigger a known software vulnerability.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","{""attack_type"": ""dos"", ""severity"": ""high"", ""affected_asset"": ""public_api"", ""recommended_action"": ""Block abusive traffic to the public_api, inspect vulnerable software, and restrict access to suspicious sources."", ""confidence"": 0.88}<|endoftext|>",True,True,False,True,False,True,dos,exploit,high,high,public_api,web_service
+blind_qlora_v1,4,A host sent connection attempts to many different ports on the same destination to identify exposed services.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Inspect the network_host for signs of exploitation or intrusion, review access logs, and restrict unnecessary exposed services."", ""confidence"": 0.86}<|endoftext|>",True,True,False,True,True,True,fuzzing,reconnaissance,medium,medium,network_host,network_host
+blind_qlora_v1,5,"Malformed packets were sent repeatedly to a network daemon, apparently to test how the service handles unexpected input.","{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","{""attack_type"": ""dos"", ""severity"": ""high"", ""affected_asset"": ""network_daemon"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_daemon, block abusive sources, and monitor service availability."", ""confidence"": 0.88}<|endoftext|>",True,True,False,False,False,True,dos,fuzzing,high,medium,network_daemon,network_service
+blind_qlora_v1,6,"A security device reported malicious traffic against a service, but the indicators did not clearly match scanning, exploitation, fuzzing, worm behavior, or denial of service.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_host"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the network_host."", ""confidence"": 0.84}<|endoftext|>",True,True,False,False,False,True,benign,generic_attack,low,medium,network_host,network_service
+blind_qlora_v1,7,A suspicious payload containing low-level executable instructions was detected while being delivered to a listening service.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_service"", ""recommended_action"": ""No immediate security action is required. Review routine monitoring of the network_service."", ""confidence"": 0.84}<|endoftext|>",True,True,False,False,True,True,benign,shellcode,low,critical,network_service,network_service
+blind_qlora_v1,8,An attacker appeared to collect information about host configuration and possible weaknesses before launching a direct attack.,"{""attack_type"": ""analysis"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review information-gathering activity, limit exposed diagnostic details, and monitor for follow-up attacks."", ""confidence"": 0.84}","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Inspect network_host for vulnerability exploitation attempts, review logs, and apply patching or security filtering as necessary."", ""confidence"": 0.86}<|endoftext|>",True,True,False,True,True,True,generic_attack,analysis,medium,medium,network_host,network_host
+blind_qlora_v1,9,An internal workstation performed a routine DNS query with normal traffic volume and no suspicious indicators.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""dns_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the dns_service."", ""confidence"": 0.84}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_host"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the network_host."", ""confidence"": 0.84}<|endoftext|>",True,True,True,True,False,True,benign,benign,low,low,network_host,dns_service
+blind_qlora_v1,10,The company mail server received normal SMTP traffic from a trusted internal relay with expected volume.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""mail_server"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the mail_server."", ""confidence"": 0.84}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""mail_server"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the mail_server."", ""confidence"": 0.84}<|endoftext|>",True,True,True,True,True,True,benign,benign,low,low,mail_server,mail_server
+blind_qlora_v1,11,A database-backed web application received suspicious input containing SQL syntax intended to manipulate a backend query.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","{""attack_type"": ""dos"", ""severity"": ""high"", ""affected_asset"": ""database_backed_web_app"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the database_backed_web_app, block abusive sources, and monitor service availability."", ""confidence"": 0.88}<|endoftext|>",True,True,False,True,False,True,dos,exploit,high,high,database_backed_web_app,web_service
+blind_qlora_v1,12,Many external hosts sent high-volume traffic to the same public service until legitimate users experienced timeouts.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","{""attack_type"": ""dos"", ""severity"": ""high"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.88}<|endoftext|>",True,True,True,False,True,True,dos,dos,high,critical,network_service,network_service
+blind_qlora_v1,13,"A compromised endpoint continued to contact a command server after reboot, suggesting unauthorized persistence.","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_host"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of network_host."", ""confidence"": 0.84}<|endoftext|>",True,True,False,False,True,True,benign,backdoor,low,critical,network_host,network_host
+blind_qlora_v1,14,"A host generated repeated automated connection attempts toward multiple internal systems, consistent with malware spreading behavior.","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_host"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of network_host."", ""confidence"": 0.84}<|endoftext|>",True,True,False,False,True,True,benign,worm,low,critical,network_host,network_host
+blind_qlora_v1,15,A source address probed several services across the environment to discover which systems were reachable.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review scanning activity, restrict exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity against network_host and restrict unnecessary exposed services, if applicable."", ""confidence"": 0.86}<|endoftext|>",True,True,True,True,False,True,reconnaissance,reconnaissance,medium,medium,network_host,network_service
+blind_qlora_v1,16,A network service received unusual random-looking inputs designed to trigger crashes or unexpected behavior.,"{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the network_service."", ""confidence"": 0.84}<|endoftext|>",True,True,False,False,True,True,benign,fuzzing,low,medium,network_service,network_service
+blind_qlora_v1,17,"The IDS marked a flow as hostile, but the event lacked enough detail to assign it to a specific attack family.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review network_host logs for signs of attack, patch vulnerable software, and monitor for follow-up activity."", ""confidence"": 0.86}<|endoftext|>",True,True,True,True,False,True,generic_attack,generic_attack,medium,medium,network_host,network_service
+blind_qlora_v1,18,Executable payload fragments were observed in traffic targeting a server process.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","{""attack_type"": ""shellcode"", ""severity"": ""high"", ""affected_asset"": ""server_process"", ""recommended_action"": ""Isolate the affected server_process, inspect memory and process activity, patch vulnerable services, and collect forensic evidence."", ""confidence"": 0.88}<|endoftext|>",True,True,True,False,False,True,shellcode,shellcode,high,critical,server_process,network_service
+blind_qlora_v1,19,A suspicious actor appeared to examine available services and gather technical details about a target host.,"{""attack_type"": ""analysis"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review information-gathering activity, limit exposed diagnostic details, and monitor for follow-up attacks."", ""confidence"": 0.84}","{""attack_type"": ""analysis"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Investigate the suspicious activity targeting the network_host, review related logs, and increase monitoring for follow-up attacks."", ""confidence"": 0.86}<|endoftext|>",True,True,True,True,True,True,analysis,analysis,medium,medium,network_host,network_host
+blind_qlora_v1,20,A normal web request was served successfully by the public website with no abnormal traffic pattern.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""web_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the web_service."", ""confidence"": 0.84}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""web_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the web_service."", ""confidence"": 0.84}<|endoftext|>",True,True,True,True,True,True,benign,benign,low,low,web_service,web_service
+blind_qlora_v1,21,A normal SSH login from a known administrator account completed successfully from an expected internal address.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_host"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the network_host."", ""confidence"": 0.84}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the network_service."", ""confidence"": 0.84}<|endoftext|>",True,True,True,True,False,True,benign,benign,low,low,network_service,network_host
+blind_qlora_v1,22,A vulnerable application endpoint was targeted with crafted input designed to execute unintended behavior.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","{""attack_type"": ""dos"", ""severity"": ""high"", ""affected_asset"": ""application_endpoint"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the application_endpoint, block abusive sources, and monitor service availability."", ""confidence"": 0.88}<|endoftext|>",True,True,False,True,False,True,dos,exploit,high,high,application_endpoint,web_service
+blind_qlora_v1,23,A public service slowed down after receiving repeated connection floods from external sources.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","{""attack_type"": ""dos"", ""severity"": ""high"", ""affected_asset"": ""public_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the public_service, block abusive sources, and monitor service availability."", ""confidence"": 0.88}<|endoftext|>",True,True,True,False,False,True,dos,dos,high,critical,public_service,network_service
+blind_qlora_v1,24,A suspicious service remained available for remote attacker access even after the original intrusion activity ended.,"{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the network_service."", ""confidence"": 0.84}<|endoftext|>",True,True,False,False,False,True,benign,backdoor,low,critical,network_service,network_host
+blind_qlora_v1,25,Automated traffic from one internal machine attempted to spread to several other hosts without user action.,"{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","{""attack_type"": ""dos"", ""severity"": ""high"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_host, block abusive sources, and monitor service availability."", ""confidence"": 0.88}<|endoftext|>",True,True,False,False,True,True,dos,worm,high,critical,network_host,network_host
+blind_qlora_v1,26,A scanner checked a range of ports to identify exposed services on a target system.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity against network_host, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}<|endoftext|>",True,True,True,True,True,True,reconnaissance,reconnaissance,medium,medium,network_host,network_host
+blind_qlora_v1,27,An application service received malformed protocol messages intended to test input validation behavior.,"{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""application_service"", ""recommended_action"": ""Inspect the application_service for malformed input handling, review logs, and strengthen validation rules."", ""confidence"": 0.86}<|endoftext|>",True,True,True,True,False,True,fuzzing,fuzzing,medium,medium,application_service,network_service
+blind_qlora_v1,28,"Security monitoring detected malicious behavior against a service, but the available log did not specify the exact method.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the network_service for signs of intrusion, patch vulnerable software, and monitor user activity."", ""confidence"": 0.86}<|endoftext|>",True,True,True,True,True,True,generic_attack,generic_attack,medium,medium,network_service,network_service
+blind_qlora_v1,29,The traffic contained code-like payload bytes associated with an attempt to execute instructions on the target.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Isolate the network_service, inspect memory and process activity, patch vulnerable services, and collect forensic evidence."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,shellcode,shellcode,critical,critical,network_service,network_service
+blind_qlora_v2,0,A customer-facing web portal became unavailable after receiving a very large number of requests from many unrelated source addresses.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,dos,dos,critical,critical,web_service,web_service
+blind_qlora_v2,1,"An internal workstation attempted to connect to many neighboring machines in a repeated automated pattern, suggesting self-propagating malware behavior.","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,worm,worm,critical,critical,network_host,network_host
+blind_qlora_v2,2,"A server kept an unauthorized remote access channel open after the original intrusion, allowing the attacker to return later.","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,backdoor,backdoor,critical,critical,network_host,network_host
+blind_qlora_v2,3,A public API endpoint received crafted requests that attempted to trigger a known software vulnerability.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""api_endpoint"", ""recommended_action"": ""Inspect the api_endpoint for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}<|endoftext|>",True,True,True,True,False,True,exploit,exploit,high,high,api_endpoint,web_service
+blind_qlora_v2,4,A host sent connection attempts to many different ports on the same destination to identify exposed services.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}<|endoftext|>",True,True,True,True,True,True,reconnaissance,reconnaissance,medium,medium,network_host,network_host
+blind_qlora_v2,5,"Malformed packets were sent repeatedly to a network daemon, apparently to test how the service handles unexpected input.","{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review monitoring for the service, review logs for signs of attack emulation, and strengthen validation or filtering rules."", ""confidence"": 0.86}<|endoftext|>",True,True,False,True,True,True,reconnaissance,fuzzing,medium,medium,network_service,network_service
+blind_qlora_v2,6,"A security device reported malicious traffic against a service, but the indicators did not clearly match scanning, exploitation, fuzzing, worm behavior, or denial of service.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}<|endoftext|>",True,True,True,True,True,True,generic_attack,generic_attack,medium,medium,network_service,network_service
+blind_qlora_v2,7,A suspicious payload containing low-level executable instructions was detected while being delivered to a listening service.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Isolate the affected service, inspect memory and process activity, patch vulnerable services, and collect forensic evidence."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,shellcode,shellcode,critical,critical,network_service,network_service
+blind_qlora_v2,8,An attacker appeared to collect information about host configuration and possible weaknesses before launching a direct attack.,"{""attack_type"": ""analysis"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review information-gathering activity, limit exposed diagnostic details, and monitor for follow-up attacks."", ""confidence"": 0.84}","{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}<|endoftext|>",True,True,False,True,True,True,reconnaissance,analysis,medium,medium,network_host,network_host
+blind_qlora_v2,9,An internal workstation performed a routine DNS query with normal traffic volume and no suspicious indicators.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""dns_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the dns_service."", ""confidence"": 0.84}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the network_service."", ""confidence"": 0.84}<|endoftext|>",True,True,True,True,False,True,benign,benign,low,low,network_service,dns_service
+blind_qlora_v2,10,The company mail server received normal SMTP traffic from a trusted internal relay with expected volume.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""mail_server"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the mail_server."", ""confidence"": 0.84}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""mail_server"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the mail_server."", ""confidence"": 0.84}<|endoftext|>",True,True,True,True,True,True,benign,benign,low,low,mail_server,mail_server
+blind_qlora_v2,11,A database-backed web application received suspicious input containing SQL syntax intended to manipulate a backend query.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","{""attack_type"": ""dos"", ""severity"": ""high"", ""affected_asset"": ""database_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection, block abusive sources, and monitor service availability."", ""confidence"": 0.88}<|endoftext|>",True,True,False,True,False,True,dos,exploit,high,high,database_service,web_service
+blind_qlora_v2,12,Many external hosts sent high-volume traffic to the same public service until legitimate users experienced timeouts.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,dos,dos,critical,critical,network_service,network_service
+blind_qlora_v2,13,"A compromised endpoint continued to contact a command server after reboot, suggesting unauthorized persistence.","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,backdoor,backdoor,critical,critical,network_host,network_host
+blind_qlora_v2,14,"A host generated repeated automated connection attempts toward multiple internal systems, consistent with malware spreading behavior.","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,worm,worm,critical,critical,network_host,network_host
+blind_qlora_v2,15,A source address probed several services across the environment to discover which systems were reachable.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review scanning activity, restrict exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review scanning activity, restrict exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}<|endoftext|>",True,True,True,True,True,True,reconnaissance,reconnaissance,medium,medium,network_service,network_service
+blind_qlora_v2,16,A network service received unusual random-looking inputs designed to trigger crashes or unexpected behavior.,"{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}<|endoftext|>",True,True,False,True,True,True,reconnaissance,fuzzing,medium,medium,network_service,network_service
+blind_qlora_v2,17,"The IDS marked a flow as hostile, but the event lacked enough detail to assign it to a specific attack family.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review logs for the affected service, inspect nearby hosts, and strengthen available monitoring."", ""confidence"": 0.86}<|endoftext|>",True,True,True,True,True,True,generic_attack,generic_attack,medium,medium,network_service,network_service
+blind_qlora_v2,18,Executable payload fragments were observed in traffic targeting a server process.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, inspect memory and process activity, patch vulnerable services, and collect forensic evidence."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,False,True,shellcode,shellcode,critical,critical,network_host,network_service
+blind_qlora_v2,19,A suspicious actor appeared to examine available services and gather technical details about a target host.,"{""attack_type"": ""analysis"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review information-gathering activity, limit exposed diagnostic details, and monitor for follow-up attacks."", ""confidence"": 0.84}","{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict exposed endpoints, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}<|endoftext|>",True,True,False,True,True,True,reconnaissance,analysis,medium,medium,network_host,network_host
+blind_qlora_v2,20,A normal web request was served successfully by the public website with no abnormal traffic pattern.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""web_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the web_service."", ""confidence"": 0.84}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""web_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the web_service."", ""confidence"": 0.84}<|endoftext|>",True,True,True,True,True,True,benign,benign,low,low,web_service,web_service
+blind_qlora_v2,21,A normal SSH login from a known administrator account completed successfully from an expected internal address.,"{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""network_host"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the network_host."", ""confidence"": 0.84}","{""attack_type"": ""benign"", ""severity"": ""low"", ""affected_asset"": ""ssh_service"", ""recommended_action"": ""No immediate security action is required. Continue routine monitoring of the ssh_service."", ""confidence"": 0.84}<|endoftext|>",True,True,True,True,False,True,benign,benign,low,low,ssh_service,network_host
+blind_qlora_v2,22,A vulnerable application endpoint was targeted with crafted input designed to execute unintended behavior.,"{""attack_type"": ""exploit"", ""severity"": ""high"", ""affected_asset"": ""web_service"", ""recommended_action"": ""Inspect the web service for signs of exploitation, patch vulnerable software, review access logs, and block suspicious source traffic."", ""confidence"": 0.88}","{""attack_type"": ""dos"", ""severity"": ""high"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Enable rate limiting or DDoS protection service, block abusive sources, and monitor service availability."", ""confidence"": 0.88}<|endoftext|>",True,True,False,True,False,True,dos,exploit,high,high,network_host,web_service
+blind_qlora_v2,23,A public service slowed down after receiving repeated connection floods from external sources.,"{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}","{""attack_type"": ""dos"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Enable rate limiting or DDoS protection for the network_service, block abusive sources, and monitor service availability."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,dos,dos,critical,critical,network_service,network_service
+blind_qlora_v2,24,A suspicious service remained available for remote attacker access even after the original intrusion activity ended.,"{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Isolate the affected host, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}","{""attack_type"": ""backdoor"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Isolate the affected service, search for unauthorized persistence mechanisms, rotate credentials, and perform forensic analysis."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,False,True,backdoor,backdoor,critical,critical,network_service,network_host
+blind_qlora_v2,25,Automated traffic from one internal machine attempted to spread to several other hosts without user action.,"{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}","{""attack_type"": ""worm"", ""severity"": ""critical"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Immediately isolate the affected host, scan nearby hosts, block propagation paths, and begin incident response procedures."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,worm,worm,critical,critical,network_host,network_host
+blind_qlora_v2,26,A scanner checked a range of ports to identify exposed services on a target system.,"{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_host"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}","{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review scanning activity, restrict unnecessary exposed services, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}<|endoftext|>",True,True,True,True,False,True,reconnaissance,reconnaissance,medium,medium,network_service,network_host
+blind_qlora_v2,27,An application service received malformed protocol messages intended to test input validation behavior.,"{""attack_type"": ""fuzzing"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review service crash logs, validate input handling, and apply patches or filtering rules if instability is observed."", ""confidence"": 0.86}","{""attack_type"": ""reconnaissance"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Review scanning activity, strengthen validation rules, and monitor for follow-up intrusion attempts."", ""confidence"": 0.86}<|endoftext|>",True,True,False,True,True,True,reconnaissance,fuzzing,medium,medium,network_service,network_service
+blind_qlora_v2,28,"Security monitoring detected malicious behavior against a service, but the available log did not specify the exact method.","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the affected service, and apply network blocking or filtering if malicious behavior is confirmed."", ""confidence"": 0.88}","{""attack_type"": ""generic_attack"", ""severity"": ""medium"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Investigate the suspicious traffic, review logs for the service, and apply network blocking or filtering if malicious behavior was confirmed."", ""confidence"": 0.88}<|endoftext|>",True,True,True,True,True,True,generic_attack,generic_attack,medium,medium,network_service,network_service
+blind_qlora_v2,29,The traffic contained code-like payload bytes associated with an attempt to execute instructions on the target.,"{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Block the payload source, inspect the affected service for compromise, and patch vulnerabilities that allow code execution."", ""confidence"": 0.89}","{""attack_type"": ""shellcode"", ""severity"": ""critical"", ""affected_asset"": ""network_service"", ""recommended_action"": ""Isolate the affected service, inspect memory and process activity, patch vulnerable services, and collect forensic evidence."", ""confidence"": 0.9}<|endoftext|>",True,True,True,True,True,True,shellcode,shellcode,critical,critical,network_service,network_service

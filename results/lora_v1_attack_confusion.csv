@@ -1,0 +1,11 @@
+Expected,analysis,backdoor,benign,dos,exploit,fuzzing,generic_attack,reconnaissance,shellcode
+analysis,1,0,0,0,0,0,0,1,0
+backdoor,0,1,2,0,0,0,0,0,0
+benign,0,0,4,0,0,0,0,0,0
+dos,0,0,0,3,0,0,0,0,0
+exploit,0,0,0,0,3,0,0,0,0
+fuzzing,0,0,0,0,0,3,0,0,0
+generic_attack,0,0,1,0,0,0,2,0,0
+reconnaissance,0,0,1,1,0,0,0,1,0
+shellcode,0,0,1,0,0,0,0,0,2
+worm,0,0,0,3,0,0,0,0,0

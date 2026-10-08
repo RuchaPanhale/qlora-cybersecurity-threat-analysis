@@ -1,0 +1,21 @@
+# Model/adapters/checkpoints - not uploaded to GitHub
+adapters/
+checkpoints/
+outputs/
+wandb/
+runs/
+
+# Python/cache files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Large/raw data files
+data/raw/
+*.zip
+*.tar
+*.gz
+
+# OS/editor files
+.DS_Store
+.vscode/

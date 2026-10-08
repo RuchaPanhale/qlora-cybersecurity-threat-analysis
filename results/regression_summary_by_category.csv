@@ -1,0 +1,5 @@
+system,category,num_examples,exact_match_rate,contains_expected_rate
+base_model,instruction_following,10,0.4,0.5
+base_model,reasoning_arithmetic,10,0.6,0.9
+qlora_v2,instruction_following,10,0.7,0.8
+qlora_v2,reasoning_arithmetic,10,0.8,0.9

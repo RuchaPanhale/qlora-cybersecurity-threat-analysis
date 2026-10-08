@@ -1,0 +1,12 @@
+{
+  "num_eval_examples": 30,
+  "num_examples_with_any_field_error": 21,
+  "main_failure_patterns": [
+    "Worm examples were consistently predicted as dos.",
+    "Backdoor examples were sometimes predicted as benign.",
+    "Critical severity was often downgraded to high or low.",
+    "Affected asset labels were sometimes semantically reasonable but not normalized to the project taxonomy, such as public_website instead of web_service.",
+    "Network_service and network_host were frequently confused."
+  ],
+  "v2_hypothesis": "Improve v2 primarily through targeted dataset augmentation and asset-label normalization examples, while keeping the base model and most training settings fixed. This isolates whether dataset quality and class coverage improve task performance."
+}

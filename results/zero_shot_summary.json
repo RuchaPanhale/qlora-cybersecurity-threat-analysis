@@ -1,0 +1,10 @@
+{
+  "system": "base_zero_shot",
+  "num_examples": 30,
+  "json_valid_rate": 1.0,
+  "schema_valid_rate": 0.0,
+  "attack_type_accuracy": 0.43333333333333335,
+  "severity_accuracy": 0.5,
+  "affected_asset_accuracy": 0.0,
+  "confidence_numeric_rate": 0.0
+}

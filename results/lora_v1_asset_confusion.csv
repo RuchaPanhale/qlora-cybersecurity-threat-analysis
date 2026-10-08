@@ -1,0 +1,6 @@
+Expected,dns_service,internal_application,mail_server,network_daemon,network_host,network_service,public_website,web_service
+dns_service,1,0,0,0,2,0,0,0
+mail_server,0,0,1,0,0,0,0,0
+network_host,0,0,0,0,7,1,0,0
+network_service,0,1,0,1,7,5,0,0
+web_service,0,0,0,0,0,0,1,3

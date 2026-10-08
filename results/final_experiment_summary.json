@@ -1,0 +1,128 @@
+{
+  "project_title": "QLoRA Fine-Tuning for Cybersecurity Threat Analysis JSON Generation",
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "fine_tuning_method": "QLoRA / LoRA adapters with 4-bit quantization",
+  "task": "Convert cybersecurity logs or incident descriptions into structured threat-analysis JSON.",
+  "json_fields": [
+    "attack_type",
+    "severity",
+    "affected_asset",
+    "recommended_action",
+    "confidence"
+  ],
+  "dataset": {
+    "raw_source": "Kaggle mirror of UNSW-NB15: harshwardhanbhangale/unsw-complete-dataset",
+    "raw_rows": 2540047,
+    "curated_v1_examples": 2850,
+    "train_v1_examples": 2422,
+    "dev_v1_examples": 428,
+    "train_v2_examples": 2614,
+    "manual_iteration_eval_examples": 30,
+    "final_blind_eval_examples": 30,
+    "labeling_note": "attack_type was mapped from UNSW-NB15 categories; severity, affected_asset, recommended_action, and confidence were derived using transparent rule-based heuristics for this structured generation task.",
+    "v2_change": "Targeted oversampled augmentation for v1 failure patterns: worm/backdoor/generic/reconnaissance confusion, critical severity, and affected_asset normalization."
+  },
+  "iteration_eval_results": [
+    {
+      "system": "base_zero_shot",
+      "num_examples": 30,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 0.0,
+      "attack_type_accuracy": 0.4333333333333333,
+      "severity_accuracy": 0.5,
+      "affected_asset_accuracy": 0.0,
+      "confidence_numeric_rate": 0.0
+    },
+    {
+      "system": "base_few_shot",
+      "num_examples": 30,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "attack_type_accuracy": 0.2333333333333333,
+      "severity_accuracy": 0.6,
+      "affected_asset_accuracy": 0.1333333333333333,
+      "confidence_numeric_rate": 1.0
+    },
+    {
+      "system": "qlora_v1",
+      "num_examples": 30,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "attack_type_accuracy": 0.6666666666666666,
+      "severity_accuracy": 0.6333333333333333,
+      "affected_asset_accuracy": 0.5666666666666667,
+      "confidence_numeric_rate": 1.0
+    },
+    {
+      "system": "qlora_v2",
+      "num_examples": 30,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "attack_type_accuracy": 0.9,
+      "severity_accuracy": 1.0,
+      "affected_asset_accuracy": 0.8,
+      "confidence_numeric_rate": 1.0
+    }
+  ],
+  "final_blind_eval_results": [
+    {
+      "system": "blind_base_zero_shot",
+      "num_examples": 30,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 0.0,
+      "attack_type_accuracy": 0.3333333333333333,
+      "severity_accuracy": 0.4666666666666667,
+      "affected_asset_accuracy": 0.0,
+      "confidence_numeric_rate": 0.0
+    },
+    {
+      "system": "blind_base_few_shot",
+      "num_examples": 30,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "attack_type_accuracy": 0.3,
+      "severity_accuracy": 0.6333333333333333,
+      "affected_asset_accuracy": 0.03333333333333333,
+      "confidence_numeric_rate": 1.0
+    },
+    {
+      "system": "blind_qlora_v1",
+      "num_examples": 30,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "attack_type_accuracy": 0.5,
+      "severity_accuracy": 0.5666666666666667,
+      "affected_asset_accuracy": 0.5,
+      "confidence_numeric_rate": 1.0
+    },
+    {
+      "system": "blind_qlora_v2",
+      "num_examples": 30,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "attack_type_accuracy": 0.7666666666666667,
+      "severity_accuracy": 1.0,
+      "affected_asset_accuracy": 0.7333333333333333,
+      "confidence_numeric_rate": 1.0
+    }
+  ],
+  "regression_results_overall": [
+    {
+      "system": "base_model",
+      "num_examples": 20,
+      "exact_match_rate": 0.5,
+      "contains_expected_rate": 0.7
+    },
+    {
+      "system": "qlora_v2",
+      "num_examples": 20,
+      "exact_match_rate": 0.75,
+      "contains_expected_rate": 0.85
+    }
+  ],
+  "training_loss_summary": {
+    "v1_final_validation_loss": 0.1186070218682289,
+    "v2_final_validation_loss": 0.1126827597618103
+  },
+  "main_conclusion": "QLoRA v2 improved structured cybersecurity JSON generation over zero-shot, few-shot, and QLoRA v1 baselines on a separate final blind evaluation set, while showing no measured regression on the small unrelated benchmark."
+}

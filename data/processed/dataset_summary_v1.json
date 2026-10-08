@@ -1,0 +1,54 @@
+{
+  "raw_dataset_name": "UNSW-NB15 Kaggle mirror",
+  "raw_total_rows": 2540047,
+  "curated_v1_total_examples": 2850,
+  "train_v1_examples": 2422,
+  "dev_v1_examples": 428,
+  "attack_type_distribution_v1": {
+    "reconnaissance": 300,
+    "generic_attack": 300,
+    "analysis": 300,
+    "backdoor": 300,
+    "dos": 300,
+    "fuzzing": 300,
+    "benign": 300,
+    "exploit": 300,
+    "shellcode": 300,
+    "worm": 150
+  },
+  "train_attack_type_distribution": {
+    "analysis": 255,
+    "benign": 255,
+    "shellcode": 255,
+    "fuzzing": 255,
+    "reconnaissance": 255,
+    "backdoor": 255,
+    "dos": 255,
+    "exploit": 255,
+    "generic_attack": 255,
+    "worm": 127
+  },
+  "dev_attack_type_distribution": {
+    "backdoor": 45,
+    "benign": 45,
+    "dos": 45,
+    "generic_attack": 45,
+    "exploit": 45,
+    "shellcode": 45,
+    "analysis": 45,
+    "fuzzing": 45,
+    "reconnaissance": 45,
+    "worm": 23
+  },
+  "dataset_construction_steps": [
+    "Loaded four raw UNSW-NB15 CSV files and official feature-name file.",
+    "Assigned official column names to raw CSV files.",
+    "Cleaned whitespace and inconsistent attack category labels.",
+    "Mapped original UNSW-NB15 attack categories into a smaller project taxonomy.",
+    "Replaced missing attack categories with benign for rows where label=0.",
+    "Sampled a mostly class-balanced subset for v1.",
+    "Converted each selected network-flow row into a natural-language cybersecurity event description.",
+    "Created structured JSON targets with attack_type, severity, affected_asset, recommended_action, and confidence.",
+    "Split curated examples into train/dev using stratified sampling by attack_type."
+  ]
+}

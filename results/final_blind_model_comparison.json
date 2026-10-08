@@ -1,0 +1,42 @@
+[
+  {
+    "system": "blind_base_zero_shot",
+    "num_examples": 30,
+    "json_valid_rate": 1.0,
+    "schema_valid_rate": 0.0,
+    "attack_type_accuracy": 0.3333333333333333,
+    "severity_accuracy": 0.4666666666666667,
+    "affected_asset_accuracy": 0.0,
+    "confidence_numeric_rate": 0.0
+  },
+  {
+    "system": "blind_base_few_shot",
+    "num_examples": 30,
+    "json_valid_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "attack_type_accuracy": 0.3,
+    "severity_accuracy": 0.6333333333333333,
+    "affected_asset_accuracy": 0.03333333333333333,
+    "confidence_numeric_rate": 1.0
+  },
+  {
+    "system": "blind_qlora_v1",
+    "num_examples": 30,
+    "json_valid_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "attack_type_accuracy": 0.5,
+    "severity_accuracy": 0.5666666666666667,
+    "affected_asset_accuracy": 0.5,
+    "confidence_numeric_rate": 1.0
+  },
+  {
+    "system": "blind_qlora_v2",
+    "num_examples": 30,
+    "json_valid_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "attack_type_accuracy": 0.7666666666666667,
+    "severity_accuracy": 1.0,
+    "affected_asset_accuracy": 0.7333333333333333,
+    "confidence_numeric_rate": 1.0
+  }
+]
